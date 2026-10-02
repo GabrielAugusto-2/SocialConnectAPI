@@ -1,0 +1,4 @@
+br\com\socialconnect\api\doacoes\dto\DoacaoRequestDTO.class
+br\com\socialconnect\api\doadores\repository\DoadorRepository.class
+br\com\socialconnect\api\doadores\model\Doador.class
+br\com\socialconnect\api\doadores\model\Doador$DoadorBuilder.class
