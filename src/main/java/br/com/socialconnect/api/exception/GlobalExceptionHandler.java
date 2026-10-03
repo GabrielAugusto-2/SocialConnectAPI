@@ -56,6 +56,40 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(problem);
     }
 
+    @ExceptionHandler(NomeProdutoDuplicadoException.class)
+    public ResponseEntity<ProblemDetail> handleNomeDuplicado(
+            NomeProdutoDuplicadoException ex, WebRequest request) {
+
+        ProblemDetail problem = new ProblemDetail(
+                "https://socialconnect.api/errors/nome-duplicado",
+                "Nome de produto já cadastrado",
+                HttpStatus.CONFLICT.value(),
+                ex.getMessage(),
+                request.getDescription(false),
+                LocalDateTime.now(),
+                List.of()
+        );
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(problem);
+    }
+
+    @ExceptionHandler(EstoqueInvalidoException.class)
+    public ResponseEntity<ProblemDetail> handleEstoqueInvalido(
+            EstoqueInvalidoException ex, WebRequest request) {
+
+        ProblemDetail problem = new ProblemDetail(
+                "https://socialconnect.api/errors/estoque-invalido",
+                "Operação de estoque inválida",
+                HttpStatus.UNPROCESSABLE_ENTITY.value(),
+                ex.getMessage(),
+                request.getDescription(false),
+                LocalDateTime.now(),
+                List.of()
+        );
+
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(problem);
+    }
+
     @ExceptionHandler(RecursoNaoEncontradoException.class)
     public ResponseEntity<ProblemDetail> handleNaoEncontrado(
             RecursoNaoEncontradoException ex, WebRequest request) {

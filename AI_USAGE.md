@@ -18,7 +18,7 @@ Para cada aula ou entrega, registre abaixo:
 
 | Data | Aula | Ferramenta | Prompt (resumo) | Uso da saída |
 |------|------|------------|-----------------|--------------|
-| _dd/mm/aaaa_ | _Aula XX_ | _ex: ChatGPT_ | _ex: "Como injetar dependência via construtor no Spring?"_ | _ex: "Adaptei o exemplo ao meu Service"_ |
+| 02/10/2026 | Avaliação A1 | Antigravity | "Implementação do Módulo de Produtos (Entity, Migration V4, DTOs, @EstoqueNaoNegativo, Service, Controller OpenAPI e Testes)" | Código revisado, adaptado aos padrões de RFC 7807 e validado com suíte de testes. |
 
 ---
 
