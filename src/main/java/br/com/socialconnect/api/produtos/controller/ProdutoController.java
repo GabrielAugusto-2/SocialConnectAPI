@@ -41,6 +41,7 @@ public class ProdutoController {
             @Parameter(description = "Categoria do produto", example = "ALIMENTO")
             @RequestParam(required = false) CategoriaProduto categoria,
 
+            @org.springdoc.core.annotations.ParameterObject
             @PageableDefault(size = 10, sort = "nome") Pageable pageable) {
 
         return ResponseEntity.ok(service.listar(nome, categoria, pageable));

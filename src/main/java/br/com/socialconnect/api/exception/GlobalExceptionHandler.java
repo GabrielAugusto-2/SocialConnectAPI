@@ -107,6 +107,23 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(problem);
     }
 
+    @ExceptionHandler(org.springframework.data.core.PropertyReferenceException.class)
+    public ResponseEntity<ProblemDetail> handlePropertyReference(
+            org.springframework.data.core.PropertyReferenceException ex, WebRequest request) {
+
+        ProblemDetail problem = new ProblemDetail(
+                "https://socialconnect.api/errors/parametro-invalido",
+                "Parâmetro de ordenação inválido",
+                HttpStatus.BAD_REQUEST.value(),
+                "A propriedade informada para ordenação não existe: " + ex.getPropertyName(),
+                request.getDescription(false),
+                LocalDateTime.now(),
+                List.of()
+        );
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(problem);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ProblemDetail> handleGenerico(
             Exception ex, WebRequest request) {
